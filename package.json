@@ -1,0 +1,15 @@
+{
+    "name": "pricing-engine-api-connector",
+    "version": "0.0.9",
+    "description": "API for a pricing engine that is called by the enfore platform\n",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

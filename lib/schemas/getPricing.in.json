@@ -1,0 +1,1185 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "required": [
+                "items"
+            ],
+            "type": "object",
+            "properties": {
+                "register_id": {
+                    "maxLength": 256,
+                    "type": "string",
+                    "description": "The technical identifier of the device where the order is processed assigned\nby the enfore platform.\n"
+                },
+                "operator_id": {
+                    "maxLength": 256,
+                    "type": "string",
+                    "description": "The technical identifier of the cashier who is processing the order assigned\nby the enfore platform.\n"
+                },
+                "sales_channel_id": {
+                    "maxLength": 256,
+                    "type": "string",
+                    "description": "The technical identifier of the store where the order is processed assigned\nby the enfore platform.\n"
+                },
+                "customer_id": {
+                    "maxLength": 256,
+                    "type": "string",
+                    "description": "The technical identifier of the customer assigned by the enfore platform."
+                },
+                "sales_orders_id": {
+                    "maxLength": 256,
+                    "type": "string",
+                    "description": "The ID of the order that this PricingEngineContext corresponds to."
+                },
+                "manual_discount": {
+                    "required": [
+                        "gross_amount",
+                        "name",
+                        "net_amount"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "gross_amount": {
+                            "required": [
+                                "unit",
+                                "value"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "multipleOf": 0.000001,
+                                    "type": "number",
+                                    "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                },
+                                "unit": {
+                                    "type": "string",
+                                    "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                    "enum": [
+                                        "AUD",
+                                        "BRL",
+                                        "CAD",
+                                        "CHF",
+                                        "CNY",
+                                        "DKK",
+                                        "EUR",
+                                        "GBP",
+                                        "HKD",
+                                        "IDR",
+                                        "INR",
+                                        "JPY",
+                                        "KRW",
+                                        "MXN",
+                                        "MYR",
+                                        "NOK",
+                                        "NZD",
+                                        "PHP",
+                                        "RUB",
+                                        "SEK",
+                                        "SGD",
+                                        "TRY",
+                                        "TWD",
+                                        "USD",
+                                        "ZAR"
+                                    ]
+                                }
+                            },
+                            "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                        },
+                        "net_amount": {
+                            "required": [
+                                "unit",
+                                "value"
+                            ],
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "multipleOf": 0.000001,
+                                    "type": "number",
+                                    "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                },
+                                "unit": {
+                                    "type": "string",
+                                    "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                    "enum": [
+                                        "AUD",
+                                        "BRL",
+                                        "CAD",
+                                        "CHF",
+                                        "CNY",
+                                        "DKK",
+                                        "EUR",
+                                        "GBP",
+                                        "HKD",
+                                        "IDR",
+                                        "INR",
+                                        "JPY",
+                                        "KRW",
+                                        "MXN",
+                                        "MYR",
+                                        "NOK",
+                                        "NZD",
+                                        "PHP",
+                                        "RUB",
+                                        "SEK",
+                                        "SGD",
+                                        "TRY",
+                                        "TWD",
+                                        "USD",
+                                        "ZAR"
+                                    ]
+                                }
+                            },
+                            "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                        },
+                        "external_data": {
+                            "maxLength": 256,
+                            "type": "string",
+                            "description": "External data that the pricing engine can attach to a discount or markup.\n"
+                        }
+                    }
+                },
+                "discounts": {
+                    "type": "array",
+                    "items": {
+                        "required": [
+                            "gross_amount",
+                            "name",
+                            "net_amount"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "The name to display of the discount or markup rule/promotion that was applied."
+                            },
+                            "id": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "Identifier of the markup rule/promotion that was applied."
+                            },
+                            "gross_amount": {
+                                "required": [
+                                    "unit",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "multipleOf": 0.000001,
+                                        "type": "number",
+                                        "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                        "enum": [
+                                            "AUD",
+                                            "BRL",
+                                            "CAD",
+                                            "CHF",
+                                            "CNY",
+                                            "DKK",
+                                            "EUR",
+                                            "GBP",
+                                            "HKD",
+                                            "IDR",
+                                            "INR",
+                                            "JPY",
+                                            "KRW",
+                                            "MXN",
+                                            "MYR",
+                                            "NOK",
+                                            "NZD",
+                                            "PHP",
+                                            "RUB",
+                                            "SEK",
+                                            "SGD",
+                                            "TRY",
+                                            "TWD",
+                                            "USD",
+                                            "ZAR"
+                                        ]
+                                    }
+                                },
+                                "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                            },
+                            "net_amount": {
+                                "required": [
+                                    "unit",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "multipleOf": 0.000001,
+                                        "type": "number",
+                                        "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                        "enum": [
+                                            "AUD",
+                                            "BRL",
+                                            "CAD",
+                                            "CHF",
+                                            "CNY",
+                                            "DKK",
+                                            "EUR",
+                                            "GBP",
+                                            "HKD",
+                                            "IDR",
+                                            "INR",
+                                            "JPY",
+                                            "KRW",
+                                            "MXN",
+                                            "MYR",
+                                            "NOK",
+                                            "NZD",
+                                            "PHP",
+                                            "RUB",
+                                            "SEK",
+                                            "SGD",
+                                            "TRY",
+                                            "TWD",
+                                            "USD",
+                                            "ZAR"
+                                        ]
+                                    }
+                                },
+                                "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                            },
+                            "external_data": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "External data that the pricing engine can attach to a discount or markup.\n"
+                            }
+                        }
+                    }
+                },
+                "markups": {
+                    "type": "array",
+                    "items": {
+                        "required": [
+                            "gross_amount",
+                            "name",
+                            "net_amount"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "The name to display of the discount or markup rule/promotion that was applied."
+                            },
+                            "id": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "Identifier of the markup rule/promotion that was applied."
+                            },
+                            "gross_amount": {
+                                "required": [
+                                    "unit",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "multipleOf": 0.000001,
+                                        "type": "number",
+                                        "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                        "enum": [
+                                            "AUD",
+                                            "BRL",
+                                            "CAD",
+                                            "CHF",
+                                            "CNY",
+                                            "DKK",
+                                            "EUR",
+                                            "GBP",
+                                            "HKD",
+                                            "IDR",
+                                            "INR",
+                                            "JPY",
+                                            "KRW",
+                                            "MXN",
+                                            "MYR",
+                                            "NOK",
+                                            "NZD",
+                                            "PHP",
+                                            "RUB",
+                                            "SEK",
+                                            "SGD",
+                                            "TRY",
+                                            "TWD",
+                                            "USD",
+                                            "ZAR"
+                                        ]
+                                    }
+                                },
+                                "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                            },
+                            "net_amount": {
+                                "required": [
+                                    "unit",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "multipleOf": 0.000001,
+                                        "type": "number",
+                                        "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                        "enum": [
+                                            "AUD",
+                                            "BRL",
+                                            "CAD",
+                                            "CHF",
+                                            "CNY",
+                                            "DKK",
+                                            "EUR",
+                                            "GBP",
+                                            "HKD",
+                                            "IDR",
+                                            "INR",
+                                            "JPY",
+                                            "KRW",
+                                            "MXN",
+                                            "MYR",
+                                            "NOK",
+                                            "NZD",
+                                            "PHP",
+                                            "RUB",
+                                            "SEK",
+                                            "SGD",
+                                            "TRY",
+                                            "TWD",
+                                            "USD",
+                                            "ZAR"
+                                        ]
+                                    }
+                                },
+                                "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                            },
+                            "external_data": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "External data that the pricing engine can attach to a discount or markup.\n"
+                            }
+                        }
+                    }
+                },
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "required": [
+                            "id",
+                            "order_date",
+                            "product_id",
+                            "quantity",
+                            "sales_types",
+                            "type"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "The technical identifier of the PricingEngineContextLineItem assigned by the enfore platform.\n"
+                            },
+                            "product_id": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "The technical identifier of the product.\nAssigned by the enfore platform on creation of the\nproduct and not changeable afterwards.\nCan be mapped via the Product API to article and external IDs.\n"
+                            },
+                            "lot_id": {
+                                "maxLength": 256,
+                                "type": "string",
+                                "description": "The identifier of the lot that the product units belong to."
+                            },
+                            "sales_category_ids": {
+                                "type": "array",
+                                "items": {
+                                    "maxLength": 256,
+                                    "type": "string"
+                                }
+                            },
+                            "sales_types": {
+                                "type": "string",
+                                "enum": [
+                                    "OTC",
+                                    "PICKUP",
+                                    "DELIVERY"
+                                ]
+                            },
+                            "quantity": {
+                                "required": [
+                                    "unit",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "multipleOf": 0.000001,
+                                        "type": "number",
+                                        "description": "The numerical value of the Quantity.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                    },
+                                    "unit": {
+                                        "type": "string",
+                                        "description": "Describes a unit of measure. Commonly uses as part of Quantity values.\n",
+                                        "enum": [
+                                            "ENERGY_JOULES",
+                                            "ENERGY_GIGAJOULES",
+                                            "ENERGY_MEGAJOULES",
+                                            "ENERGY_KILOJOULES",
+                                            "ENERGY_CENTIJOULES",
+                                            "ENERGY_MILLIJOULES",
+                                            "ENERGY_MICROJOULES",
+                                            "ENERGY_CALORIES",
+                                            "ENERGY_KILOCALORIES",
+                                            "ENERGY_WATTHOURS",
+                                            "ENERGY_GIGAWATTHOURS",
+                                            "ENERGY_MEGAWATTHOURS",
+                                            "ENERGY_KILOWATTHOURS",
+                                            "ENERGY_CENTIWATTHOURS",
+                                            "ENERGY_MILLIWATTHOURS",
+                                            "ENERGY_MICROWATTHOURS",
+                                            "LENGTH_KILOMETERS",
+                                            "LENGTH_METERS",
+                                            "LENGTH_DECIMETERS",
+                                            "LENGTH_CENTIMETERS",
+                                            "LENGTH_MILLIMETERS",
+                                            "LENGTH_POINTS",
+                                            "LENGTH_INCHES",
+                                            "LENGTH_FEET",
+                                            "LENGTH_YARDS",
+                                            "MASS_TONS",
+                                            "MASS_KILOGRAMS",
+                                            "MASS_GRAMS",
+                                            "MASS_MILLIGRAMS",
+                                            "MASS_POUNDS",
+                                            "QUANTITY_PIECES",
+                                            "TIME_SECONDS",
+                                            "TIME_MINUTES",
+                                            "TIME_HOURS",
+                                            "TIME_DAYS",
+                                            "TIME_WEEKS",
+                                            "DIGITALINFORMATION_BYTES",
+                                            "DIGITALINFORMATION_KILOBYTES",
+                                            "DIGITALINFORMATION_KIBIBYTES",
+                                            "DIGITALINFORMATION_MEGABYTES",
+                                            "DIGITALINFORMATION_MEBIBYTES",
+                                            "DIGITALINFORMATION_GIGABYTES",
+                                            "DIGITALINFORMATION_GIBIBYTES",
+                                            "DIGITALINFORMATION_TERABYTES",
+                                            "DIGITALINFORMATION_TEBIBYTES",
+                                            "DIGITALINFORMATION_PETABYTES",
+                                            "DIGITALINFORMATION_PEBIBYTES",
+                                            "TIME_MONTHS",
+                                            "TIME_YEARS",
+                                            "VOLUME_CUBIC_MILLIMETERS",
+                                            "VOLUME_CUBIC_CENTIMETERS",
+                                            "VOLUME_CUBIC_DECIMETERS",
+                                            "VOLUME_CUBIC_METERS",
+                                            "VOLUME_MILLILITERS",
+                                            "VOLUME_CENTILITERS",
+                                            "VOLUME_DECILITERS",
+                                            "VOLUME_LITERS",
+                                            "VOLUME_HECTOLITERS",
+                                            "VOLUME_FLUID_OUNCES",
+                                            "VOLUME_PINTS",
+                                            "VOLUME_QUARTS",
+                                            "VOLUME_GALLONS",
+                                            "VOLUME_BARRELS"
+                                        ]
+                                    }
+                                },
+                                "description": "A Quantity represents a quantity value (i.e., a unit and an amount), for example \"3 pcs\" or \"2.5 kg\"."
+                            },
+                            "base_price_and_quantity": {
+                                "required": [
+                                    "price",
+                                    "price_is_gross",
+                                    "quantity"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "price": {
+                                        "required": [
+                                            "unit",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "multipleOf": 0.000001,
+                                                "type": "number",
+                                                "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                "enum": [
+                                                    "AUD",
+                                                    "BRL",
+                                                    "CAD",
+                                                    "CHF",
+                                                    "CNY",
+                                                    "DKK",
+                                                    "EUR",
+                                                    "GBP",
+                                                    "HKD",
+                                                    "IDR",
+                                                    "INR",
+                                                    "JPY",
+                                                    "KRW",
+                                                    "MXN",
+                                                    "MYR",
+                                                    "NOK",
+                                                    "NZD",
+                                                    "PHP",
+                                                    "RUB",
+                                                    "SEK",
+                                                    "SGD",
+                                                    "TRY",
+                                                    "TWD",
+                                                    "USD",
+                                                    "ZAR"
+                                                ]
+                                            }
+                                        },
+                                        "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                    },
+                                    "price_is_gross": {
+                                        "type": "boolean",
+                                        "description": "Flag indicating whether the price is gross (true) or net (false)"
+                                    },
+                                    "quantity": {
+                                        "required": [
+                                            "unit",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "multipleOf": 0.000001,
+                                                "type": "number",
+                                                "description": "The numerical value of the Quantity.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "description": "Describes a unit of measure. Commonly uses as part of Quantity values.\n",
+                                                "enum": [
+                                                    "ENERGY_JOULES",
+                                                    "ENERGY_GIGAJOULES",
+                                                    "ENERGY_MEGAJOULES",
+                                                    "ENERGY_KILOJOULES",
+                                                    "ENERGY_CENTIJOULES",
+                                                    "ENERGY_MILLIJOULES",
+                                                    "ENERGY_MICROJOULES",
+                                                    "ENERGY_CALORIES",
+                                                    "ENERGY_KILOCALORIES",
+                                                    "ENERGY_WATTHOURS",
+                                                    "ENERGY_GIGAWATTHOURS",
+                                                    "ENERGY_MEGAWATTHOURS",
+                                                    "ENERGY_KILOWATTHOURS",
+                                                    "ENERGY_CENTIWATTHOURS",
+                                                    "ENERGY_MILLIWATTHOURS",
+                                                    "ENERGY_MICROWATTHOURS",
+                                                    "LENGTH_KILOMETERS",
+                                                    "LENGTH_METERS",
+                                                    "LENGTH_DECIMETERS",
+                                                    "LENGTH_CENTIMETERS",
+                                                    "LENGTH_MILLIMETERS",
+                                                    "LENGTH_POINTS",
+                                                    "LENGTH_INCHES",
+                                                    "LENGTH_FEET",
+                                                    "LENGTH_YARDS",
+                                                    "MASS_TONS",
+                                                    "MASS_KILOGRAMS",
+                                                    "MASS_GRAMS",
+                                                    "MASS_MILLIGRAMS",
+                                                    "MASS_POUNDS",
+                                                    "QUANTITY_PIECES",
+                                                    "TIME_SECONDS",
+                                                    "TIME_MINUTES",
+                                                    "TIME_HOURS",
+                                                    "TIME_DAYS",
+                                                    "TIME_WEEKS",
+                                                    "DIGITALINFORMATION_BYTES",
+                                                    "DIGITALINFORMATION_KILOBYTES",
+                                                    "DIGITALINFORMATION_KIBIBYTES",
+                                                    "DIGITALINFORMATION_MEGABYTES",
+                                                    "DIGITALINFORMATION_MEBIBYTES",
+                                                    "DIGITALINFORMATION_GIGABYTES",
+                                                    "DIGITALINFORMATION_GIBIBYTES",
+                                                    "DIGITALINFORMATION_TERABYTES",
+                                                    "DIGITALINFORMATION_TEBIBYTES",
+                                                    "DIGITALINFORMATION_PETABYTES",
+                                                    "DIGITALINFORMATION_PEBIBYTES",
+                                                    "TIME_MONTHS",
+                                                    "TIME_YEARS",
+                                                    "VOLUME_CUBIC_MILLIMETERS",
+                                                    "VOLUME_CUBIC_CENTIMETERS",
+                                                    "VOLUME_CUBIC_DECIMETERS",
+                                                    "VOLUME_CUBIC_METERS",
+                                                    "VOLUME_MILLILITERS",
+                                                    "VOLUME_CENTILITERS",
+                                                    "VOLUME_DECILITERS",
+                                                    "VOLUME_LITERS",
+                                                    "VOLUME_HECTOLITERS",
+                                                    "VOLUME_FLUID_OUNCES",
+                                                    "VOLUME_PINTS",
+                                                    "VOLUME_QUARTS",
+                                                    "VOLUME_GALLONS",
+                                                    "VOLUME_BARRELS"
+                                                ]
+                                            }
+                                        },
+                                        "description": "A Quantity represents a quantity value (i.e., a unit and an amount), for example \"3 pcs\" or \"2.5 kg\"."
+                                    }
+                                },
+                                "description": "The set of information defining the price of a product.\nA product's price is always relative to a specific quantity of the product.\nFor example, if a single bottle of water costs 1�, 5 bottles cost 5�.\nAdditionally, a given price might be including tax or not.\nTherefore, the ProductPriceAndQuantity is a combination of a quantity, a price and a \"price is gross\"-flag.\n"
+                            },
+                            "price_is_manual": {
+                                "type": "boolean",
+                                "default": false
+                            },
+                            "manual_discount": {
+                                "required": [
+                                    "gross_amount",
+                                    "name",
+                                    "net_amount"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "gross_amount": {
+                                        "required": [
+                                            "unit",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "multipleOf": 0.000001,
+                                                "type": "number",
+                                                "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                "enum": [
+                                                    "AUD",
+                                                    "BRL",
+                                                    "CAD",
+                                                    "CHF",
+                                                    "CNY",
+                                                    "DKK",
+                                                    "EUR",
+                                                    "GBP",
+                                                    "HKD",
+                                                    "IDR",
+                                                    "INR",
+                                                    "JPY",
+                                                    "KRW",
+                                                    "MXN",
+                                                    "MYR",
+                                                    "NOK",
+                                                    "NZD",
+                                                    "PHP",
+                                                    "RUB",
+                                                    "SEK",
+                                                    "SGD",
+                                                    "TRY",
+                                                    "TWD",
+                                                    "USD",
+                                                    "ZAR"
+                                                ]
+                                            }
+                                        },
+                                        "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                    },
+                                    "net_amount": {
+                                        "required": [
+                                            "unit",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "multipleOf": 0.000001,
+                                                "type": "number",
+                                                "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                "enum": [
+                                                    "AUD",
+                                                    "BRL",
+                                                    "CAD",
+                                                    "CHF",
+                                                    "CNY",
+                                                    "DKK",
+                                                    "EUR",
+                                                    "GBP",
+                                                    "HKD",
+                                                    "IDR",
+                                                    "INR",
+                                                    "JPY",
+                                                    "KRW",
+                                                    "MXN",
+                                                    "MYR",
+                                                    "NOK",
+                                                    "NZD",
+                                                    "PHP",
+                                                    "RUB",
+                                                    "SEK",
+                                                    "SGD",
+                                                    "TRY",
+                                                    "TWD",
+                                                    "USD",
+                                                    "ZAR"
+                                                ]
+                                            }
+                                        },
+                                        "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                    },
+                                    "external_data": {
+                                        "maxLength": 256,
+                                        "type": "string",
+                                        "description": "External data that the pricing engine can attach to a discount or markup.\n"
+                                    }
+                                }
+                            },
+                            "discounts": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "gross_amount",
+                                        "is_single_item",
+                                        "name",
+                                        "net_amount"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "description": "The name to display of the discount or markup rule/promotion that was applied."
+                                        },
+                                        "id": {
+                                            "maxLength": 256,
+                                            "type": "string",
+                                            "description": "Identifier of the markup rule/promotion that was applied."
+                                        },
+                                        "gross_amount": {
+                                            "required": [
+                                                "unit",
+                                                "value"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "multipleOf": 0.000001,
+                                                    "type": "number",
+                                                    "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                                },
+                                                "unit": {
+                                                    "type": "string",
+                                                    "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                    "enum": [
+                                                        "AUD",
+                                                        "BRL",
+                                                        "CAD",
+                                                        "CHF",
+                                                        "CNY",
+                                                        "DKK",
+                                                        "EUR",
+                                                        "GBP",
+                                                        "HKD",
+                                                        "IDR",
+                                                        "INR",
+                                                        "JPY",
+                                                        "KRW",
+                                                        "MXN",
+                                                        "MYR",
+                                                        "NOK",
+                                                        "NZD",
+                                                        "PHP",
+                                                        "RUB",
+                                                        "SEK",
+                                                        "SGD",
+                                                        "TRY",
+                                                        "TWD",
+                                                        "USD",
+                                                        "ZAR"
+                                                    ]
+                                                }
+                                            },
+                                            "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                        },
+                                        "net_amount": {
+                                            "required": [
+                                                "unit",
+                                                "value"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "multipleOf": 0.000001,
+                                                    "type": "number",
+                                                    "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                                },
+                                                "unit": {
+                                                    "type": "string",
+                                                    "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                    "enum": [
+                                                        "AUD",
+                                                        "BRL",
+                                                        "CAD",
+                                                        "CHF",
+                                                        "CNY",
+                                                        "DKK",
+                                                        "EUR",
+                                                        "GBP",
+                                                        "HKD",
+                                                        "IDR",
+                                                        "INR",
+                                                        "JPY",
+                                                        "KRW",
+                                                        "MXN",
+                                                        "MYR",
+                                                        "NOK",
+                                                        "NZD",
+                                                        "PHP",
+                                                        "RUB",
+                                                        "SEK",
+                                                        "SGD",
+                                                        "TRY",
+                                                        "TWD",
+                                                        "USD",
+                                                        "ZAR"
+                                                    ]
+                                                }
+                                            },
+                                            "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                        },
+                                        "is_single_item": {
+                                            "type": "boolean",
+                                            "description": "Discounts may be distributed about multiple line items.\nThis boolean helps to identify the discounts that are truely only applying to a single line item.\n"
+                                        },
+                                        "external_data": {
+                                            "maxLength": 256,
+                                            "type": "string",
+                                            "description": "External data that the pricing engine can attach to a discount or markup.\n"
+                                        }
+                                    }
+                                }
+                            },
+                            "markups": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "gross_amount",
+                                        "is_single_item",
+                                        "name",
+                                        "net_amount"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string",
+                                            "description": "The name to display of the discount or markup rule/promotion that was applied."
+                                        },
+                                        "id": {
+                                            "maxLength": 256,
+                                            "type": "string",
+                                            "description": "Identifier of the markup rule/promotion that was applied."
+                                        },
+                                        "gross_amount": {
+                                            "required": [
+                                                "unit",
+                                                "value"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "multipleOf": 0.000001,
+                                                    "type": "number",
+                                                    "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                                },
+                                                "unit": {
+                                                    "type": "string",
+                                                    "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                    "enum": [
+                                                        "AUD",
+                                                        "BRL",
+                                                        "CAD",
+                                                        "CHF",
+                                                        "CNY",
+                                                        "DKK",
+                                                        "EUR",
+                                                        "GBP",
+                                                        "HKD",
+                                                        "IDR",
+                                                        "INR",
+                                                        "JPY",
+                                                        "KRW",
+                                                        "MXN",
+                                                        "MYR",
+                                                        "NOK",
+                                                        "NZD",
+                                                        "PHP",
+                                                        "RUB",
+                                                        "SEK",
+                                                        "SGD",
+                                                        "TRY",
+                                                        "TWD",
+                                                        "USD",
+                                                        "ZAR"
+                                                    ]
+                                                }
+                                            },
+                                            "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                        },
+                                        "net_amount": {
+                                            "required": [
+                                                "unit",
+                                                "value"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "value": {
+                                                    "multipleOf": 0.000001,
+                                                    "type": "number",
+                                                    "description": "The numerical value of the Money.\nMust be in the range of -9,000,000,000,000 to 9,000,000,000,000 and may use up to 6 decimal digits.\n"
+                                                },
+                                                "unit": {
+                                                    "type": "string",
+                                                    "description": "Represents a currency. Uses the ISO 4217 codes.",
+                                                    "enum": [
+                                                        "AUD",
+                                                        "BRL",
+                                                        "CAD",
+                                                        "CHF",
+                                                        "CNY",
+                                                        "DKK",
+                                                        "EUR",
+                                                        "GBP",
+                                                        "HKD",
+                                                        "IDR",
+                                                        "INR",
+                                                        "JPY",
+                                                        "KRW",
+                                                        "MXN",
+                                                        "MYR",
+                                                        "NOK",
+                                                        "NZD",
+                                                        "PHP",
+                                                        "RUB",
+                                                        "SEK",
+                                                        "SGD",
+                                                        "TRY",
+                                                        "TWD",
+                                                        "USD",
+                                                        "ZAR"
+                                                    ]
+                                                }
+                                            },
+                                            "description": "A Money represents a monetary value (i.e., a currency and an amount), for example \"120 EUR\" or \"2,500.75 USD\"."
+                                        },
+                                        "is_single_item": {
+                                            "type": "boolean",
+                                            "description": "Discounts may be distributed about multiple line items.\nThis boolean helps to identify the discounts that are truely only applying to a single line item.\n"
+                                        },
+                                        "external_data": {
+                                            "maxLength": 256,
+                                            "type": "string",
+                                            "description": "External data that the pricing engine can attach to a discount or markup.\n"
+                                        }
+                                    }
+                                }
+                            },
+                            "escrow_supplier_id": {
+                                "maxLength": 256,
+                                "type": "string"
+                            },
+                            "order_date": {
+                                "type": "string",
+                                "description": "Order date, i.e. when the item was added to the order, in date-time notation in UTC. The date-time notation as defined by RFC 3339 (https://www.ietf.org/rfc/rfc3339.txt), section 5.6, with the \"Z\" as time-offset. For example, 2017-07-21T17:32:28.123Z",
+                                "format": "date-time"
+                            },
+                            "taxes": {
+                                "type": "array",
+                                "description": "List of taxes that were applied to the item",
+                                "items": {
+                                    "type": "string",
+                                    "description": "A Tax represents a specific and unchangeable tax. Whenever a tax (rate) changes due to new legislation\nor other reasons, a new Tax must be defined and used from then on.\n\nFor example, the standard VAT rates in Germany have been changed multiple times in the last 50 years:\n* 01.01.1968 � 30.06.1968 = 10%\n* 01.07.1968 � 31.12.1977 = 11%\n* 01.01.1978 � 30.06.1979 = 12%\n* 01.07.1979 � 30.06.1983 = 13%\n* 01.07.1983 � 31.12.1992 = 14%\n* 01.01.1993 � 31.03.1998 = 15%\n* 01.04.1998 � 31.12.2006 = 16%\n* 01.01.2007 � current    = 19%\n\nFor now, we only use the tax DE_STANDARD_VAT_2007. But if, hypothetically, Germany would increase its\nstandard VAT rate to 21% on 1/JAN/2020, we would define a new tax DE_STANDARD_VAT_2020 and use that from\n1/JAN/2020 on.\n",
+                                    "enum": [
+                                        "DE_STANDARD_VAT_2007",
+                                        "DE_REDUCED_VAT_2007",
+                                        "DE_NO_VAT"
+                                    ]
+                                }
+                            },
+                            "additional_invoice_information": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "text",
+                                        "type"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "description": "The type of the additional information.\nMay be used by custom document templates to determine position and\nformatting of information.\n"
+                                        },
+                                        "text": {
+                                            "type": "array",
+                                            "description": "The text of the additional information broken into parts.\nThe default document template will treat each part as a paragraph.\nCustom document templates may have specialized handling per part.\n",
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "description": "Addition information for an order or line item that is to be printed on\nthe invoice(s) for the order/item.\n"
+                                }
+                            },
+                            "last_pricing_status": {
+                                "required": [
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "type": "string",
+                                        "enum": [
+                                            "SUCCESS",
+                                            "BUSINESS_CONSTRAINT_VIOLATION",
+                                            "TECHNICAL_FAILURE"
+                                        ]
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Description text for the pricing result.\n"
+                                    },
+                                    "checksum": {
+                                        "maxLength": 256,
+                                        "type": "string",
+                                        "description": "Optional checksum. Will be returned to the external pricing engine\non subsequent calls and can be used to detect whether the item/order\nwas changed (e.g., modified quantity, modified price)\n"
+                                    },
+                                    "external_data": {
+                                        "maxLength": 256,
+                                        "type": "string",
+                                        "description": "Optional external data. Will be made available by the plaform as part of the\nERP API's Invoice/InvoiceItem.\n"
+                                    }
+                                },
+                                "description": "Status flag and, when necessary, description, checksum and external_data\nfor of a PricingEngineResult or PricingEngineResultItem.\n"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "SALE",
+                                    "REFUND"
+                                ]
+                            },
+                            "dependency": {
+                                "required": [
+                                    "item_id",
+                                    "type"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "item_id": {
+                                        "type": "string",
+                                        "description": "The ID of the other item."
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "OPTION",
+                                            "DEPOSIT",
+                                            "CONTENT_COMPOSITION",
+                                            "PRICING_COMPOSITION"
+                                        ]
+                                    }
+                                },
+                                "description": "Marks the item as being dependent on another item.\nThat is, the item cannot stand on its own and is a \"sub item\" of the other item.\n"
+                            }
+                        },
+                        "description": "Line item input for external pricing engine.\n\nThe item will always specfiy the product and the quantity of the product\nvia `product_id` and `quantity`.\n\nWhen a price is available (configured on the resource, manually entered\nby the user or computed by a previous call to external pricing), it will\nbe provided via the `base_price_and_quantity` field.\nWhen not available, `base_price_and_quantity` will be empty and the base\nprice must be computed by the external pricing logic.\nIf the price was manually entered by the user, the flag `price_is_manual`\nwill be TRUE.\n"
+                    }
+                },
+                "additional_invoice_information": {
+                    "type": "array",
+                    "items": {
+                        "required": [
+                            "text",
+                            "type"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "type": {
+                                "type": "string",
+                                "description": "The type of the additional information.\nMay be used by custom document templates to determine position and\nformatting of information.\n"
+                            },
+                            "text": {
+                                "type": "array",
+                                "description": "The text of the additional information broken into parts.\nThe default document template will treat each part as a paragraph.\nCustom document templates may have specialized handling per part.\n",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "description": "Addition information for an order or line item that is to be printed on\nthe invoice(s) for the order/item.\n"
+                    }
+                },
+                "last_pricing_status": {
+                    "required": [
+                        "value"
+                    ],
+                    "type": "object",
+                    "properties": {
+                        "value": {
+                            "type": "string",
+                            "enum": [
+                                "SUCCESS",
+                                "BUSINESS_CONSTRAINT_VIOLATION",
+                                "TECHNICAL_FAILURE"
+                            ]
+                        },
+                        "description": {
+                            "type": "string",
+                            "description": "Description text for the pricing result.\n"
+                        },
+                        "checksum": {
+                            "maxLength": 256,
+                            "type": "string",
+                            "description": "Optional checksum. Will be returned to the external pricing engine\non subsequent calls and can be used to detect whether the item/order\nwas changed (e.g., modified quantity, modified price)\n"
+                        },
+                        "external_data": {
+                            "maxLength": 256,
+                            "type": "string",
+                            "description": "Optional external data. Will be made available by the plaform as part of the\nERP API's Invoice/InvoiceItem.\n"
+                        }
+                    },
+                    "description": "Status flag and, when necessary, description, checksum and external_data\nfor of a PricingEngineResult or PricingEngineResultItem.\n"
+                }
+            },
+            "description": "Represents the context for the pricing engine\n"
+        },
+        "org_id": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

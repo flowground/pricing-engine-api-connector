@@ -1,0 +1,50 @@
+{
+    "title": "Pricing Engine API",
+    "description": "API for a pricing engine that is called by the enfore platform\n",
+    "docsUrl": "",
+    "url": "/",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getPricing": {
+            "main": "./lib/actions/getPricing.js",
+            "title": "Get a pricing based on a pricing engine context in the given organisation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getPricing.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
